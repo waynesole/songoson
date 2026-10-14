@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d1f">
+<meta property="og:title" content="SonGoson · Musique latine & cubaine">
+<meta property="og:description" content="Salsa, bachata et classiques du Buena Vista Social Club en live. Mariages, festivals, bars, soirées d'entreprise.">
+<meta property="og:image" content="img/groupe.jpg">
+<link rel="icon" href="img/logo.png">
+<title>SonGoson</title>
+<meta name="description" content="SonGoson, groupe de musique latine et cubaine : salsa, bachata, Buena Vista Social Club. Mariages, festivals, bars, soirées d'entreprise.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout : nuit cubaine. Fond indigo profond, lumière de scène chaude (mangue → rouge du G du logo).
+   Hero en deux colonnes photo/texte, bandeau défilant des styles, sections pleine largeur, devis en fin de page. */
+:root{
+  --night:#0b0d1f;        /* fond, bleu nuit du logo */
+  --night-2:#12152d;      /* surfaces */
+  --night-3:#1b1f3d;      /* surfaces hautes, bordures */
+  --line:rgba(243,234,216,.10);
+  --cream:#f3ead8;        /* texte */
+  --muted:#b6ad9d;        /* texte secondaire */
+  --mango:#ffa34d;        /* accent chaud */
+  --rojo:#ec3b3f;         /* rouge du G */
+  --glow:linear-gradient(120deg,var(--mango),var(--rojo));
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:18px;
+  --wrap:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--cream);font:400 17px/1.6 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.02;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:0}
+.eyebrow{font:600 12px/1 var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--mango);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--glow);border-radius:2px}
+:focus-visible{outline:2px solid var(--mango);outline-offset:3px;border-radius:6px}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font:600 15px/1 var(--f-body);text-decoration:none;border:0;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s}
+.btn-hot{background:var(--glow);color:#1a0b06;box-shadow:0 10px 30px -10px rgba(236,59,63,.7)}
+.btn-hot:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(255,163,77,.8)}
+.btn-ghost{background:rgba(243,234,216,.06);color:var(--cream);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-ghost:hover{background:rgba(243,234,216,.12);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);background:rgba(11,13,31,.72);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:80px}
+.logo{display:block;flex:none;line-height:0}
+.logo img{height:46px;width:auto}
+footer .logo img{height:36px}
+@media (max-width:420px){.logo img{height:38px}}
+.nav-links{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.nav-links a{text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--cream)}
+.nav .btn{padding:11px 18px;font-size:14px}
+@media (max-width:860px){.nav-links{display:none}}
+
+/* Hero */
+.hero{position:relative;padding-block:clamp(40px,7vw,90px) clamp(48px,7vw,96px);isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-10% -10% auto auto;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(circle,rgba(255,163,77,.22),rgba(236,59,63,.10) 40%,transparent 68%);z-index:-1;filter:blur(10px);animation:sun 14s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;left:-20%;bottom:-30%;width:60vw;height:60vw;max-width:700px;background:radial-gradient(circle,rgba(70,80,220,.20),transparent 65%);z-index:-1}
+@keyframes sun{to{transform:translate(-6%,8%) scale(1.08)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero-copy{min-width:0;display:flex;flex-direction:column;gap:26px}
+.hero h1{font-size:clamp(46px,7.4vw,100px)}
+.hero h1 .serif{display:block;font-size:.86em;background:var(--glow);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+.hero .lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:34em}
+.hero .lead strong{color:var(--cream);font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.proof{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:14px;color:var(--muted)}
+.proof span{display:inline-flex;align-items:center;gap:8px}
+.proof svg{width:16px;height:16px;color:var(--mango)}
+
+.hero-visual{position:relative;min-width:0}
+.hero-photo{border-radius:28px;overflow:hidden;aspect-ratio:1/1.02;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px var(--line);position:relative}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.04);animation:zoom 1.6s cubic-bezier(.2,.8,.2,1) both}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,13,31,.75));pointer-events:none}
+@keyframes zoom{from{transform:scale(1.12)}}
+.chip-float{position:absolute;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:16px;background:rgba(18,21,45,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px var(--line),0 20px 40px -20px rgba(0,0,0,.8);font-size:14px;line-height:1.25}
+.chip-float strong{display:block;font-family:var(--f-display);font-size:16px}
+.chip-float small{color:var(--muted)}
+.chip-a{left:-22px;bottom:34px;animation:bob 6s ease-in-out infinite}
+.chip-b{right:-14px;top:28px;animation:bob 7s ease-in-out -2s infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.eq{display:flex;gap:3px;align-items:flex-end;height:22px}
+.eq i{width:4px;border-radius:2px;background:var(--glow);animation:eq 1s ease-in-out infinite}
+.eq i:nth-child(1){height:40%;animation-delay:-.2s}.eq i:nth-child(2){height:90%;animation-delay:-.6s}.eq i:nth-child(3){height:60%;animation-delay:-.4s}.eq i:nth-child(4){height:75%;animation-delay:-.8s}
+@keyframes eq{50%{transform:scaleY(.35)}}
+.eq i{transform-origin:bottom}
+.dot{width:10px;height:10px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 4px rgba(61,220,132,.18)}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1;max-width:560px;width:100%;margin-inline:auto}
+  .chip-a{left:10px;bottom:14px}.chip-b{right:10px;top:14px}
+}
+
+/* Bandeau défilant */
+.marquee{border-block:1px solid var(--line);background:var(--night-2);overflow:hidden;padding-block:18px}
+.marquee-track{display:flex;gap:44px;width:max-content;animation:scroll 32s linear infinite}
+.marquee span{font:700 clamp(22px,3vw,32px)/1 var(--f-display);white-space:nowrap;display:inline-flex;align-items:center;gap:44px;color:var(--cream)}
+.marquee span:nth-child(even){font-family:var(--f-serif);font-style:italic;font-weight:400;color:var(--mango)}
+.marquee span::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--rojo)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:clamp(32px,5vw,56px)}
+.sec-head h2{font-size:clamp(36px,5vw,64px)}
+.sec-head p{color:var(--muted);font-size:18px;max-width:36em}
+
+/* Concept / répertoire */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.split > *{min-width:0}
+.stack{position:relative;aspect-ratio:1/1.05}
+.stack figure{margin:0;position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -25px rgba(0,0,0,.85),0 0 0 1px var(--line);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.stack figure img{width:100%;height:100%;object-fit:cover}
+.stack .s1{inset:2% 53% 46% 1%;transform:rotate(-3deg)}
+.stack .s3{inset:13% 1% 35% 53%;transform:rotate(3deg)}
+.stack .s2{inset:47% 27% 1% 27%;transform:rotate(-1deg);z-index:2}
+.stack:hover .s1{transform:rotate(-5deg) translate(-6px,-4px)}
+.stack:hover .s2{transform:rotate(0deg) translateY(6px)}
+.stack:hover .s3{transform:rotate(5deg) translate(6px,-4px)}
+.timeline{display:grid;gap:14px;margin-top:28px}
+.era{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:20px 22px;border-radius:var(--r);background:var(--night-2);box-shadow:inset 0 0 0 1px var(--line);transition:background .3s,transform .3s}
+.era:hover{background:var(--night-3);transform:translateX(4px)}
+.era .tag{font:700 13px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;padding:8px 11px;border-radius:999px;background:rgba(255,163,77,.12);color:var(--mango);white-space:nowrap}
+.era.hot .tag{background:rgba(236,59,63,.14);color:#ff7a7d}
+.era h3{font-size:21px;margin-bottom:4px}
+.era p{color:var(--muted);font-size:15.5px}
+@media (max-width:860px){.split{grid-template-columns:1fr}.stack{max-width:520px;width:100%;margin-inline:auto}}
+
+/* Formations */
+.formats{background:linear-gradient(180deg,var(--night) 0%,var(--night-2) 100%)}
+.fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.fmt{position:relative;display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:var(--night-2);box-shadow:inset 0 0 0 1px var(--line);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.fmt:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px rgba(255,163,77,.35),0 30px 60px -30px rgba(255,120,60,.45)}
+.fmt-img{aspect-ratio:4/3;overflow:hidden}
+.fmt-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.fmt:hover .fmt-img img{transform:scale(1.06)}
+.fmt-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.fmt-size{display:flex;gap:5px}
+.fmt-size i{width:22px;height:6px;border-radius:3px;background:var(--night-3)}
+.fmt-size i.on{background:var(--glow)}
+.fmt h3{font-size:26px}
+.fmt p{color:var(--muted);font-size:15.5px}
+.fmt ul{list-style:none;padding:0;margin:6px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.fmt li{font-size:13px;padding:6px 10px;border-radius:999px;background:rgba(243,234,216,.06);color:var(--cream)}
+.fmt.featured{box-shadow:inset 0 0 0 1.5px rgba(255,163,77,.55)}
+.fmt .badge{position:absolute;top:14px;left:14px;font:700 12px/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;padding:8px 11px;border-radius:999px;background:var(--glow);color:#1a0b06}
+.fmt-note{margin-top:22px;color:var(--muted);font-size:15px}
+@media (max-width:900px){.fmt-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto}.fmt-img{aspect-ratio:16/9}}
+
+/* Événements */
+.events{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.ev{background:var(--night);padding:28px 26px;display:flex;flex-direction:column;gap:12px;transition:background .3s}
+.ev:hover{background:var(--night-2)}
+.ev-ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(255,163,77,.10);color:var(--mango);transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s}
+.ev:hover .ev-ico{transform:rotate(-8deg) scale(1.06);background:rgba(236,59,63,.16);color:#ff7a7d}
+.ev-ico svg{width:24px;height:24px}
+.ev h3{font-size:20px}
+.ev p{color:var(--muted);font-size:15px}
+@media (max-width:900px){.events{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.events{grid-template-columns:1fr}}
+
+/* Garanties */
+.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(40px,6vw,72px)}
+.pr{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:2px solid var(--night-3);transition:border-color .3s}
+.pr:hover{border-color:var(--mango)}
+.pr strong{font:700 19px/1.2 var(--f-display)}
+.pr span{color:var(--muted);font-size:15px}
+@media (max-width:900px){.promise{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.promise{grid-template-columns:1fr}}
+
+/* Vidéos */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px}
+.g{position:relative;border-radius:22px;overflow:hidden;margin:0;box-shadow:0 0 0 1px var(--line);aspect-ratio:4/5}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .5s}
+.g:hover img{transform:scale(1.05)}
+.vid{text-decoration:none;display:block}
+.vid img{filter:brightness(.62) saturate(1.1)}
+.vid:hover img{filter:brightness(.8) saturate(1.2)}
+.play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:16px}
+.play-btn{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:var(--glow);color:#1a0b06;box-shadow:0 0 0 0 rgba(255,163,77,.6);animation:pulse 2.4s infinite;transition:transform .3s}
+.vid:hover .play-btn{transform:scale(1.1)}
+.play-btn svg{width:24px;height:24px;margin-left:3px}
+.play b{font:700 18px/1.2 var(--f-display)}
+.play small{font-size:13px;color:var(--muted)}
+@keyframes pulse{70%{box-shadow:0 0 0 18px rgba(255,163,77,0)}100%{box-shadow:0 0 0 0 rgba(255,163,77,0)}}
+@media (max-width:560px){.gallery{grid-template-columns:1fr}}
+
+/* Devis */
+.quote{position:relative;overflow:hidden}
+.quote-card{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,56px);padding:clamp(24px,4vw,56px);border-radius:32px;background:radial-gradient(120% 120% at 0% 0%,rgba(255,163,77,.16),transparent 50%),radial-gradient(100% 100% at 100% 100%,rgba(236,59,63,.14),transparent 55%),var(--night-2);box-shadow:inset 0 0 0 1px var(--line)}
+.quote-card > *{min-width:0}
+.quote-info{display:flex;flex-direction:column;gap:20px}
+.quote-info h2{font-size:clamp(34px,4.6vw,58px)}
+.quote-info p{color:var(--muted)}
+.contact-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-radius:16px;background:rgba(11,13,31,.6);box-shadow:inset 0 0 0 1px var(--line)}
+.contact-line div{min-width:0}
+.contact-line small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.contact-line a{font:700 18px/1.3 var(--f-display);text-decoration:none;word-break:break-all}
+.copy{flex:none;border:0;cursor:pointer;font:600 13px/1 var(--f-body);padding:10px 13px;border-radius:999px;background:rgba(243,234,216,.08);color:var(--cream);transition:background .2s}
+.copy:hover{background:rgba(243,234,216,.16)}
+.copy.ok{background:rgba(61,220,132,.18);color:#7ef0ad}
+
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;color:var(--muted)}
+input,select,textarea{font:500 16px/1.4 var(--f-body);color:var(--cream);background:rgba(11,13,31,.7);border:1px solid var(--line);border-radius:14px;padding:14px 15px;width:100%;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23b6ad9d' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;padding-right:38px}
+textarea{min-height:110px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:rgba(255,163,77,.6);box-shadow:0 0 0 4px rgba(255,163,77,.12)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills input{position:absolute;opacity:0;width:1px;height:1px}
+.pills label{cursor:pointer;padding:10px 14px;border-radius:999px;background:rgba(11,13,31,.7);border:1px solid var(--line);color:var(--cream);font-size:14px;font-weight:500;transition:all .2s}
+.pills input:checked + label{background:var(--glow);color:#1a0b06;border-color:transparent}
+.pills input:focus-visible + label{outline:2px solid var(--mango);outline-offset:2px}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:6px}
+.form-foot p{font-size:14px;color:var(--muted);flex:1;min-width:200px}
+.done{grid-column:1/-1;padding:16px 18px;border-radius:14px;background:rgba(61,220,132,.10);box-shadow:inset 0 0 0 1px rgba(61,220,132,.3);font-size:15px}
+.done pre{white-space:pre-wrap;font:13px/1.5 ui-monospace,Menlo,monospace;color:var(--muted);margin:10px 0 0;max-height:160px;overflow:auto}
+@media (max-width:900px){.quote-card{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding-block:36px 44px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;color:var(--muted);font-size:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:20px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--cream)}
+
+/* Barre mobile */
+.mbar{display:none}
+@media (max-width:700px){
+  .mbar{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(11,13,31,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+  .mbar .btn{flex:1;justify-content:center;padding:14px 10px}
+  footer{padding-bottom:110px}
+  .nav .btn{display:none}
+}
+
+/* Apparition au scroll : l'état de repos est visible */
+.reveal{transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s}
+.js .reveal.pre{transform:translateY(26px);opacity:.001}
+.hero-copy > *{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.08s}.hero-copy > *:nth-child(3){animation-delay:.16s}.hero-copy > *:nth-child(4){animation-delay:.24s}.hero-copy > *:nth-child(5){animation-delay:.32s}
+@keyframes rise{from{transform:translateY(18px);opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal.pre{transform:none;opacity:1}
+  html{scroll-behavior:auto}
+}
+</style>
+
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo.png" alt="SonGoson" width="720" height="135"></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#repertoire">Répertoire</a>
+      <a href="#formations">Formations</a>
+      <a href="#evenements">Événements</a>
+      <a href="#live">En live</a>
+    </nav>
+    <a class="btn btn-hot" href="#devis">Demander un devis</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Musique latine &amp; cubaine · live</span>
+        <h1>Le soleil de Cuba <span class="serif">sur votre piste de danse.</span></h1>
+        <p class="lead">SonGoson insuffle l’énergie et le soleil de Cuba à chacun de ses concerts. Des classiques du Buena Vista Social Club aux hits latinos modernes les plus festifs (Salsa, Bachata).</p>
+        <div class="cta-row">
+          <a class="btn btn-hot" href="#devis">Réserver le groupe
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="#live">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>Voir en vidéo</a>
+        </div>
+        <div class="proof">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sono autonome</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Volume maîtrisé</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Du trio à la formule complète</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-photo"><img src="img/groupe.jpg" alt="Les musiciens et la chanteuse de SonGoson en studio, en train de danser" fetchpriority="high"></div>
+        <div class="chip-float chip-a"><div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div><strong>Salsa · Bachata · Son</strong><small>Répertoire 100 % dansant</small></div></div>
+        <div class="chip-float chip-b"><span class="dot" aria-hidden="true"></span><div><strong>Dates ouvertes</strong><small>Saison 2026–2027</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Salsa</span><span>son cubano</span><span>Bachata</span><span>bolero</span><span>Buena Vista</span><span>cha-cha-chá</span><span>Latin hits</span><span>guaracha</span>
+      <span>Salsa</span><span>son cubano</span><span>Bachata</span><span>bolero</span><span>Buena Vista</span><span>cha-cha-chá</span><span>Latin hits</span><span>guaracha</span>
+    </div>
+  </div>
+
+  <section id="repertoire">
+    <div class="wrap split">
+      <div class="stack reveal">
+        <figure class="s1"><img src="img/bassiste-scene.jpg" alt="Le bassiste de SonGoson sur scène avec sa basse rouge" loading="lazy" style="object-position:center 25%"></figure>
+        <figure class="s3"><img src="img/conguero.jpg" alt="Le percussionniste de SonGoson aux congas" loading="lazy" style="object-position:center 25%"></figure>
+        <figure class="s2"><img src="img/trompettiste.jpg" alt="Le trompettiste de SonGoson en concert" loading="lazy" style="object-position:62% 30%"></figure>
+      </div>
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:0">
+          <span class="eyebrow">Le répertoire</span>
+          <h2>De La Havane <span class="serif">aux pistes d'aujourd'hui.</span></h2>
+          <p>Une soirée qui monte en température : on ouvre en douceur avec les standards cubains, avant d'enchaîner sur les rythmes endiablés de la salsa et de la bachata.</p>
+        </div>
+        <div class="timeline">
+          <div class="era"><span class="tag">L'apéritif</span><div><h3>Les classiques cubains</h3><p>Son, boléro et cha-cha-chá dans l'esprit du Buena Vista Social Club. Parfait pour un cocktail ou un dîner.</p></div></div>
+          <div class="era hot"><span class="tag">La fiesta</span><div><h3>Salsa, bachata &amp; hits latinos</h3><p>Les grands succès latinos, réarrangés avec le swing cubain pour faire danser petits et grands.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formations" class="formats">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Des formations adaptées</span>
+        <h2>Le bon format <span class="serif">pour votre lieu et votre budget.</span></h2>
+        <p>Du format intimiste à la formation complète, le groupe s'adapte au lieu, au public et à l'enveloppe prévue.</p>
+      </div>
+      <div class="fmt-grid">
+        <article class="fmt reveal">
+          <div class="fmt-img"><img src="img/guitariste.jpg" alt="Guitariste en formation acoustique" loading="lazy" style="object-position:center 30%"></div>
+          <div class="fmt-body">
+            <div class="fmt-size" aria-label="Taille : petite"><i class="on"></i><i></i><i></i></div>
+            <h3>Intimiste</h3>
+            <p>Le trio voix, guitare et percussions pour un cocktail, un vin d'honneur ou une terrasse. Discret, chaleureux, sans encombrer.</p>
+            <ul><li>Cocktail</li><li>Restaurant</li><li>Petit espace</li></ul>
+          </div>
+        </article>
+        <article class="fmt featured reveal">
+          <span class="badge">Le plus demandé</span>
+          <div class="fmt-img"><img src="img/trio.jpg" alt="Bassiste, percussionniste aux congas et chanteuse de SonGoson" loading="lazy" style="object-position:center 25%"></div>
+          <div class="fmt-body">
+            <div class="fmt-size" aria-label="Taille : moyenne"><i class="on"></i><i class="on"></i><i></i></div>
+            <h3>Groupe</h3>
+            <p>Voix, guitare, basse et percussions : le groove cubain au complet pour faire danser bars, mariages et soirées privées.</p>
+            <ul><li>Mariage</li><li>Bar &amp; guinguette</li><li>Soirée privée</li></ul>
+          </div>
+        </article>
+        <article class="fmt reveal">
+          <div class="fmt-img"><img src="img/chanteuse-scene.jpg" alt="La chanteuse de SonGoson au micro sous les projecteurs" loading="lazy" style="object-position:center 40%"></div>
+          <div class="fmt-body">
+            <div class="fmt-size" aria-label="Taille : grande"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+            <h3>Formation complète</h3>
+            <p>Tout l'orchestre, cuivres compris, pour les grandes scènes : festivals, fêtes de ville, soirées d'entreprise.</p>
+            <ul><li>Festival</li><li>Fête de ville</li><li>Entreprise</li></ul>
+          </div>
+        </article>
+      </div>
+      <p class="fmt-note reveal">Pas sûr du format ? Décrivez votre événement dans le devis, on vous conseille la formule la plus juste.</p>
+    </div>
+  </section>
+
+  <section id="evenements">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Où on joue</span>
+        <h2>Partout où l'on a <span class="serif">envie de danser.</span></h2>
+      </div>
+      <div class="events reveal">
+        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V9l7-5 7 5v11"/><path d="M9 20v-5h6v5"/><path d="M12 4V2"/></svg></div><h3>Festivals &amp; culture</h3><p>Scènes extérieures, programmations estivales, événements culturels.</p></div>
+        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-5 8v7"/><path d="M8 21h10"/><path d="M9 7h6"/></svg></div><h3>Bars, restos &amp; guinguettes</h3><p>Une ambiance chaleureuse et festive, avec un volume adapté qui laisse place aux conversations.</p></div>
+        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4l2 3 2-3"/></svg></div><h3>Mariages &amp; événements privés</h3><p>Du vin d'honneur à l'ouverture de bal, on suit le rythme de votre journée.</p></div>
+        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M10 21v-4h4v4"/></svg></div><h3>Soirées d'entreprise</h3><p>Séminaires, galas, fêtes de fin d'année : une soirée dont on reparle.</p></div>
+        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4"/><path d="M4 4h12l-2 4 2 4H4"/></svg></div><h3>Fêtes de ville</h3><p>Événements municipaux, 14 juillet, fêtes de quartier et marchés nocturnes.</p></div>
+        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M12 10C9 6 5 6 3 8c3 0 6 1 9 2zM12 10c3-4 7-4 9-2-3 0-6 1-9 2zM12 10c-1-4-4-6-7-6 2 2 4 4 7 6zM12 10c1-4 4-6 7-6-2 2-4 4-7 6z"/></svg></div><h3>Campings &amp; villages vacances</h3><p>Des soirées animées tout l'été pour petits et grands.</p></div>
+      </div>
+      <div class="promise reveal">
+        <div class="pr"><strong>Sonorisation autonome</strong><span>On arrive avec notre matériel, vous n'avez rien à prévoir.</span></div>
+        <div class="pr"><strong>Volume maîtrisé</strong><span>Assez fort pour danser, assez doux pour les voisins.</span></div>
+        <div class="pr"><strong>Formation adaptable</strong><span>Du trio à la formule complète selon le lieu et le budget.</span></div>
+        <div class="pr"><strong>Répertoire festif</strong><span>Chaque morceau est pensé pour faire bouger la salle.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="live" class="formats">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">En live</span>
+        <h2>Écoutez <span class="serif">avant de réserver.</span></h2>
+        <p>Deux extraits filmés en concert. Le son, l'énergie, le public : jugez sur pièce.</p>
+      </div>
+      <div class="gallery reveal">
+        <a class="g g1 vid" href="https://youtube.com/shorts/F3RKGwjCDgw" target="_blank" rel="noopener">
+          <img src="img/chanteuse.jpg" alt="La chanteuse de SonGoson en concert, robe verte et blanche" loading="lazy" style="object-position:center 25%">
+          <span class="play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><b>Extrait live #1</b><small>YouTube</small></span>
+        </a>
+        <a class="g g3 vid" href="https://youtube.com/shorts/F74272imiu0" target="_blank" rel="noopener">
+          <img src="img/mariage.jpg" alt="SonGoson tout en blanc en concert lors d'un mariage en extérieur" loading="lazy">
+          <span class="play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l12.5-7.5z"/></svg></span><b>Extrait live #2</b><small>YouTube</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="devis" class="quote">
+    <div class="wrap">
+      <div class="quote-card reveal">
+        <div class="quote-info">
+          <span class="eyebrow">Devis gratuit</span>
+          <h2>Parlez-nous <span class="serif">de votre événement.</span></h2>
+          <p>Date, lieu, nombre d'invités : avec ces infos on vous répond avec une formule et un tarif précis.</p>
+          <div class="contact-line"><div><small>Téléphone</small><a href="tel:+33646369431" id="tel">06 46 36 94 31</a></div><button class="copy" type="button" data-copy="06 46 36 94 31">Copier</button></div>
+          <div class="contact-line"><div><small>E-mail</small><a href="mailto:songoson4@gmail.com" id="mail">songoson4@gmail.com</a></div><button class="copy" type="button" data-copy="songoson4@gmail.com">Copier</button></div>
+        </div>
+        <form id="quote-form" novalidate>
+          <div class="field full">
+            <label>Type d'événement</label>
+            <div class="pills" role="radiogroup" aria-label="Type d'événement">
+              <input type="radio" name="type" id="t-mariage" value="Mariage" checked><label for="t-mariage">Mariage</label>
+              <input type="radio" name="type" id="t-entreprise" value="Soirée d'entreprise"><label for="t-entreprise">Entreprise</label>
+              <input type="radio" name="type" id="t-bar" value="Bar / restaurant"><label for="t-bar">Bar / resto</label>
+              <input type="radio" name="type" id="t-festival" value="Festival / ville"><label for="t-festival">Festival / ville</label>
+              <input type="radio" name="type" id="t-prive" value="Fête privée"><label for="t-prive">Fête privée</label>
+            </div>
+          </div>
+          <div class="field"><label for="f-date">Date</label><input type="date" id="f-date" name="date"></div>
+          <div class="field"><label for="f-lieu">Ville / lieu</label><input type="text" id="f-lieu" name="lieu" placeholder="Ex. Bordeaux"></div>
+          <div class="field"><label for="f-invites">Nombre d'invités</label>
+            <select id="f-invites" name="invites"><option>Moins de 50</option><option selected>50 à 150</option><option>150 à 300</option><option>Plus de 300</option></select></div>
+          <div class="field"><label for="f-format">Formation souhaitée</label>
+            <select id="f-format" name="format"><option>Je ne sais pas encore</option><option>Intimiste</option><option>Groupe</option><option>Formation complète</option></select></div>
+          <div class="field"><label for="f-nom">Votre nom</label><input type="text" id="f-nom" name="nom" autocomplete="name" placeholder="Prénom Nom"></div>
+          <div class="field"><label for="f-contact">Téléphone ou e-mail</label><input type="text" id="f-contact" name="contact" autocomplete="email" placeholder="Pour vous répondre"></div>
+          <div class="field full"><label for="f-msg">Un mot sur la soirée (optionnel)</label><textarea id="f-msg" name="msg" placeholder="Ambiance souhaitée, horaires, moment fort à animer…"></textarea></div>
+          <div class="form-foot">
+            <button class="btn btn-hot" type="submit">Envoyer ma demande
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p>Réponse rapide, sans engagement.</p>
+          </div>
+          <div class="done" id="done" hidden></div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/logo.png" alt="SonGoson" width="720" height="135" loading="lazy"></a>
+    <nav aria-label="Pied de page">
+      <a href="#repertoire">Répertoire</a><a href="#formations">Formations</a><a href="#live">Vidéos</a><a href="#devis">Devis</a>
+    </nav>
+    <span>© 2026 SonGoson · Musique latine &amp; cubaine</span>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" href="tel:+33646369431">Appeler</a>
+  <a class="btn btn-hot" href="#devis">Devis gratuit</a>
+</div>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  // Apparition douce au scroll (seulement pour ce qui est hors écran au chargement)
+  var els=[].slice.call(document.querySelectorAll('.reveal'));
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}})},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el);}});
+    setTimeout(function(){els.forEach(function(el){el.classList.remove('pre')})},6000);
+  }
+
+  // Copier tél / e-mail
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy');
+      var ok=function(){b.textContent='Copié';b.classList.add('ok');setTimeout(function(){b.textContent='Copier';b.classList.remove('ok')},1800)};
+      if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){sel(b)})}else sel(b);
+    });
+  });
+  function sel(b){var a=b.parentNode.querySelector('a');var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);}
+
+  // Devis : prépare le message et ouvre la messagerie
+  var f=document.getElementById('quote-form'),done=document.getElementById('done');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var d=new FormData(f);
+    var date=d.get('date')?new Date(d.get('date')+'T12:00').toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}):'à définir';
+    var body=['Bonjour SonGoson,','','Je souhaite un devis :',
+      '• Événement : '+d.get('type'),'• Date : '+date,'• Lieu : '+(d.get('lieu')||'à préciser'),
+      '• Invités : '+d.get('invites'),'• Formation : '+d.get('format'),
+      d.get('msg')?'\n'+d.get('msg'):'','','— '+(d.get('nom')||'')+' · '+(d.get('contact')||'')].join('\n');
+    var subject='Demande de devis : '+d.get('type')+' ('+date+')';
+    var href='mailto:songoson4@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    done.hidden=false;
+    done.innerHTML='<strong>Votre demande est prête.</strong> Votre messagerie va s\'ouvrir avec le message pré-rempli. Si rien ne s\'ouvre, copiez ce texte et envoyez-le à songoson4@gmail.com :<pre></pre>';
+    done.querySelector('pre').textContent=body;
+    var a=document.createElement('a');a.href=href;a.click();
+  });
+})();
+</script>
+
+</body>
+</html>
