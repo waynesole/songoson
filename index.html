@@ -55,6 +55,10 @@ p{margin:0}
 .btn-ghost{background:rgba(243,234,216,.06);color:var(--cream);box-shadow:inset 0 0 0 1px var(--line)}
 .btn-ghost:hover{background:rgba(243,234,216,.12);transform:translateY(-2px)}
 .btn svg{width:18px;height:18px}
+.btn-video{padding:17px 28px 17px 18px;font-size:16px;animation:glowpulse 2.6s ease-in-out infinite}
+.btn-play{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:rgba(26,11,6,.85);color:var(--mango)}
+.btn-play svg{width:15px;height:15px;margin-left:2px}
+@keyframes glowpulse{0%,100%{box-shadow:0 10px 30px -10px rgba(236,59,63,.7),0 0 0 0 rgba(255,163,77,.45)}50%{box-shadow:0 10px 30px -10px rgba(236,59,63,.7),0 0 0 10px rgba(255,163,77,0)}}
 
 /* Nav */
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);background:rgba(11,13,31,.72);border-bottom:1px solid var(--line)}
@@ -177,12 +181,12 @@ section{padding-block:clamp(64px,9vw,120px)}
 @media (max-width:560px){.events{grid-template-columns:1fr}}
 
 /* Garanties */
-.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(40px,6vw,72px)}
+.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(40px,6vw,72px)}
 .pr{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:2px solid var(--night-3);transition:border-color .3s}
 .pr:hover{border-color:var(--mango)}
 .pr strong{font:700 19px/1.2 var(--f-display)}
 .pr span{color:var(--muted);font-size:15px}
-@media (max-width:900px){.promise{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.promise{grid-template-columns:1fr}}
 @media (max-width:480px){.promise{grid-template-columns:1fr}}
 
 /* Vidéos */
@@ -290,10 +294,10 @@ footer a:hover{color:var(--cream)}
         <h1>Le soleil de Cuba <span class="serif">sur votre piste de danse.</span></h1>
         <p class="lead">SonGoson insuffle l’énergie et le soleil de Cuba à chacun de ses concerts. Des classiques du Buena Vista Social Club aux hits latinos modernes les plus festifs (Salsa, Bachata).</p>
         <div class="cta-row">
-          <a class="btn btn-hot" href="#devis">Réserver le groupe
+          <a class="btn btn-hot btn-video" href="#live">
+            <span class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>Voir en vidéo</a>
+          <a class="btn btn-ghost" href="#devis">Réserver le groupe
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-ghost" href="#live">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>Voir en vidéo</a>
         </div>
         <div class="proof">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sono autonome</span>
@@ -328,10 +332,6 @@ footer a:hover{color:var(--cream)}
           <span class="eyebrow">Le répertoire</span>
           <h2>De La Havane <span class="serif">aux pistes d'aujourd'hui.</span></h2>
           <p>Une soirée qui monte en température : on ouvre en douceur avec les standards cubains, avant d'enchaîner sur les rythmes endiablés de la salsa et de la bachata.</p>
-        </div>
-        <div class="timeline">
-          <div class="era"><span class="tag">L'apéritif</span><div><h3>Les classiques cubains</h3><p>Son, boléro et cha-cha-chá dans l'esprit du Buena Vista Social Club. Parfait pour un cocktail ou un dîner.</p></div></div>
-          <div class="era hot"><span class="tag">La fiesta</span><div><h3>Salsa, bachata &amp; hits latinos</h3><p>Les grands succès latinos, réarrangés avec le swing cubain pour faire danser petits et grands.</p></div></div>
         </div>
       </div>
     </div>
@@ -374,7 +374,6 @@ footer a:hover{color:var(--cream)}
           </div>
         </article>
       </div>
-      <p class="fmt-note reveal">Pas sûr du format ? Décrivez votre événement dans le devis, on vous conseille la formule la plus juste.</p>
     </div>
   </section>
 
@@ -396,7 +395,6 @@ footer a:hover{color:var(--cream)}
         <div class="pr"><strong>Sonorisation autonome</strong><span>On arrive avec notre matériel, vous n'avez rien à prévoir.</span></div>
         <div class="pr"><strong>Volume maîtrisé</strong><span>Assez fort pour danser, assez doux pour les voisins.</span></div>
         <div class="pr"><strong>Formation adaptable</strong><span>Du trio à la formule complète selon le lieu et le budget.</span></div>
-        <div class="pr"><strong>Répertoire festif</strong><span>Chaque morceau est pensé pour faire bouger la salle.</span></div>
       </div>
     </div>
   </section>
