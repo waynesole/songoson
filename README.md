@@ -32,7 +32,7 @@ Ce guide lui suffit pour s'y retrouver.
 | Barre du haut | `<header class="nav">` | Logo (`img/logo.png`), liens, bouton « Demander un devis » |
 | Accueil | `<section class="hero">` | Titre, texte de présentation, boutons « Voir en vidéo » puis « Réserver le groupe », photo `img/hero-collage.jpg` |
 | Bandeau défilant | `<div class="marquee">` | Salsa, son cubano, Bachata… |
-| Répertoire | `id="repertoire"` | 3 photos (bassiste, conguero, trompettiste) et le texte |
+| Répertoire | `id="repertoire"` | Titre et texte de présentation du répertoire |
 | Formules | `id="formations"` | Intimiste, Groupe, Formation complète |
 | Où on joue | `id="evenements"` | 6 types d'événements et 3 points forts |
 | Vidéos | `id="live"` | 2 liens YouTube Shorts avec leur photo |
