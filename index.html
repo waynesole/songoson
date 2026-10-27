@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0d1f">
-<meta property="og:title" content="SonGoson · Musique latine & cubaine">
-<meta property="og:description" content="Salsa, bachata et classiques du Buena Vista Social Club en live. Mariages, festivals, bars, soirées d'entreprise.">
+<meta property="og:title" content="SonGoson · Groupe de musique cubaine à Bordeaux">
+<meta property="og:description" content="Son, salsa, bachata et classiques du Buena Vista Social Club en live, à Bordeaux. Mariages, festivals, bars, soirées d'entreprise.">
 <meta property="og:image" content="https://songoson.fr/img/groupe.jpg">
 <meta property="og:url" content="https://songoson.fr/">
 <link rel="canonical" href="https://songoson.fr/">
 <link rel="icon" href="img/logo.png">
-<title>SonGoson</title>
-<meta name="description" content="SonGoson, groupe de musique latine et cubaine : salsa, bachata, Buena Vista Social Club. Mariages, festivals, bars, soirées d'entreprise.">
+<title>SonGoson · Groupe de musique cubaine à Bordeaux</title>
+<meta name="description" content="SonGoson, groupe de musique cubaine basé à Bordeaux : son, salsa, bachata, Buena Vista Social Club. Chanteuse de La Havane, musiciens formés à Cuba. Mariages, festivals, bars, soirées d'entreprise.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&display=swap">
@@ -151,6 +151,22 @@ section{padding-block:clamp(26px,4vw,60px)}
 .era p{color:var(--muted);font-size:15.5px}
 @media (max-width:860px){.split{grid-template-columns:1fr}.stack{max-width:520px;width:100%;margin-inline:auto}}
 
+/* Le groupe */
+.band{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.mus{padding:22px 20px;border-radius:var(--r);background:var(--night-2);box-shadow:inset 0 0 0 1px var(--line);display:flex;flex-direction:column;gap:8px}
+.mus .role{align-self:flex-start;font:700 12px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px;background:rgba(255,163,77,.12);color:var(--mango)}
+.mus h3{font-size:22px}
+.mus p{color:var(--muted);font-size:15px;margin:0}
+.refs{margin:22px 0 0;color:var(--muted);font-size:16px;max-width:52em}
+.refs strong{color:var(--cream)}
+@media (max-width:900px){.band{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.band{gap:10px}.mus{padding:16px 14px}.mus h3{font-size:19px}.mus p{font-size:14px}}
+/* Titres du répertoire */
+.songs{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px;max-width:720px}
+.songs li{font:600 15px/1 var(--f-body);padding:10px 14px;border-radius:999px;background:rgba(243,234,216,.06);box-shadow:inset 0 0 0 1px var(--line)}
+.songs small{color:var(--muted);font-weight:400;margin-left:4px}
+.songs .more{background:none;box-shadow:none;color:var(--muted);font-weight:400;font-style:italic}
+
 /* Formations */
 .formats{background:linear-gradient(180deg,var(--night) 0%,var(--night-2) 100%)}
 .fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -185,12 +201,13 @@ section{padding-block:clamp(26px,4vw,60px)}
 @media (max-width:560px){.events{grid-template-columns:1fr}}
 
 /* Garanties */
-.promise{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(40px,6vw,72px)}
+.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(40px,6vw,72px)}
 .pr{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:2px solid var(--night-3);transition:border-color .3s}
 .pr:hover{border-color:var(--mango)}
 .pr strong{font:700 19px/1.2 var(--f-display)}
 .pr span{color:var(--muted);font-size:15px}
-@media (max-width:760px){.promise{grid-template-columns:1fr}}
+@media (max-width:900px){.promise{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.promise{grid-template-columns:1fr}}
 @media (max-width:480px){.promise{grid-template-columns:1fr}}
 
 /* Vidéos */
@@ -281,6 +298,7 @@ footer a:hover{color:var(--cream)}
   <div class="wrap">
     <a class="logo" href="#top"><img src="img/logo.png" alt="SonGoson" width="720" height="135"></a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#groupe">Le groupe</a>
       <a href="#repertoire">Répertoire</a>
       <a href="#formations">Formations</a>
       <a href="#evenements">Événements</a>
@@ -294,9 +312,9 @@ footer a:hover{color:var(--cream)}
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Musique latine &amp; cubaine · live</span>
+        <span class="eyebrow">Musique cubaine · live · Bordeaux</span>
         <h1>Le soleil de Cuba <span class="serif">sur votre piste de danse.</span></h1>
-        <p class="lead">SonGoson insuffle l’énergie et le soleil de Cuba à chacun de ses concerts. Des classiques du Buena Vista Social Club aux hits latinos modernes les plus festifs (Salsa, Bachata).</p>
+        <p class="lead">Groupe de musique cubaine basé à Bordeaux, porté par <strong>une chanteuse de La Havane</strong> et des <strong>musiciens formés à Cuba</strong>. Des classiques du Buena Vista Social Club aux tubes salsa et bachata, on fait danser mariages, festivals, bars et soirées d’entreprise.</p>
         <div class="cta-row">
           <a class="btn btn-hot btn-video" href="#live">
             <span class="btn-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>Voir en vidéo</a>
@@ -311,7 +329,7 @@ footer a:hover{color:var(--cream)}
       </div>
       <div class="hero-visual">
         <div class="hero-photo"><img src="img/hero-collage.jpg" alt="SonGoson en concert : la chanteuse au micro entourée du percussionniste, du contrebassiste et du guitariste" fetchpriority="high" style="object-position:center 35%"></div>
-        <div class="chip-float chip-a"><div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div><strong>Salsa · Bachata · Son</strong><small>Répertoire 100 % dansant</small></div></div>
+        <div class="chip-float chip-a"><div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div><strong>Salsa · Bachata · Son</strong><small>Répertoire festif et dansant</small></div></div>
         <div class="chip-float chip-b"><span class="dot" aria-hidden="true"></span><div><strong>Dates ouvertes</strong><small>Saison 2026–2027</small></div></div>
       </div>
     </div>
@@ -324,6 +342,22 @@ footer a:hover{color:var(--cream)}
     </div>
   </div>
 
+  <section id="groupe">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Le groupe</span>
+        <h2>Une voix havanaise, <span class="serif">des musiciens formés à Cuba.</span></h2>
+      </div>
+      <div class="band reveal">
+        <div class="mus"><span class="role">Chant</span><h3>Yalía</h3><p>Chanteuse cubaine, née à La Havane.</p></div>
+        <div class="mus"><span class="role">Percussions</span><h3>Théo</h3><p>Percussionniste, formé à Cuba.</p></div>
+        <div class="mus"><span class="role">Tres · guitare</span><h3>François « Panchito »</h3><p>Tresero, formé à Cuba.</p></div>
+        <div class="mus"><span class="role">Basse</span><h3>Gonzalo</h3><p>Bassiste, originaire du Chili.</p></div>
+      </div>
+      <p class="refs reveal"><strong>Déjà sur scène :</strong> la Guinguette Chez Alriq, les bars et restaurants de la scène bordelaise, plusieurs festivals et des écoles de danse.</p>
+    </div>
+  </section>
+
   <section id="repertoire">
     <div class="wrap">
       <div class="reveal">
@@ -332,6 +366,9 @@ footer a:hover{color:var(--cream)}
           <h2>De La Havane <span class="serif">aux pistes d'aujourd'hui.</span></h2>
           <p>Une soirée qui monte en température : on ouvre en douceur avec les standards cubains, avant d'enchaîner sur les rythmes endiablés de la salsa et de la bachata.</p>
         </div>
+        <ul class="songs" aria-label="Quelques titres du répertoire">
+          <li>Chan Chan</li><li>Guantanamera</li><li>Dos Gardenias</li><li>Lágrimas Negras</li><li>Quimbara <small>Celia Cruz</small></li><li>El Vacilón <small>cha-cha-chá</small></li><li>Les tubes de Bad Bunny</li><li class="more">… et bien d'autres</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -394,6 +431,7 @@ footer a:hover{color:var(--cream)}
         <div class="pr"><strong>Sonorisation autonome</strong><span>On arrive avec notre matériel, vous n'avez rien à prévoir.</span></div>
         <div class="pr"><strong>Volume maîtrisé</strong><span>Assez fort pour danser, assez doux pour les voisins.</span></div>
         <div class="pr"><strong>Formation adaptable</strong><span>Du trio à la formule complète selon le lieu et le budget.</span></div>
+        <div class="pr"><strong>1 h 30 à 2 h de concert</strong><span>Et on joue les prolongations quand la piste est pleine.</span></div>
       </div>
     </div>
   </section>
@@ -464,7 +502,7 @@ footer a:hover{color:var(--cream)}
   <div class="wrap">
     <a class="logo" href="#top"><img src="img/logo.png" alt="SonGoson" width="720" height="135" loading="lazy"></a>
     <nav aria-label="Pied de page">
-      <a href="#repertoire">Répertoire</a><a href="#formations">Formations</a><a href="#live">Vidéos</a><a href="#devis">Devis</a>
+      <a href="#groupe">Le groupe</a><a href="#repertoire">Répertoire</a><a href="#formations">Formations</a><a href="#live">Vidéos</a><a href="#devis">Devis</a>
     </nav>
     <span>© 2026 SonGoson · Musique latine &amp; cubaine</span>
   </div>
