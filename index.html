@@ -98,7 +98,10 @@ footer .logo img{height:36px}
 .chip-float strong{display:block;font-family:var(--f-display);font-size:16px}
 .chip-float small{color:var(--muted)}
 .chip-a{left:-22px;bottom:34px;animation:bob 6s ease-in-out infinite}
-.chip-b{right:-14px;top:28px;animation:bob 7s ease-in-out -2s infinite}
+.chip-b{left:0;right:0;margin-inline:auto;width:max-content;top:-18px;padding:7px 13px;gap:8px;border-radius:999px;animation:bob 7s ease-in-out -2s infinite}
+.chip-b strong{font-size:13px;display:inline}
+.chip-b small{font-size:12px;margin-left:6px}
+.chip-b .dot{width:8px;height:8px;box-shadow:0 0 0 3px rgba(61,220,132,.18)}
 @keyframes bob{50%{transform:translateY(-8px)}}
 .eq{display:flex;gap:3px;align-items:flex-end;height:22px}
 .eq i{width:4px;border-radius:2px;background:var(--glow);animation:eq 1s ease-in-out infinite}
@@ -109,7 +112,8 @@ footer .logo img{height:36px}
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr}
   .hero-visual{order:-1;max-width:560px;width:100%;margin-inline:auto}
-  .chip-a{left:10px;bottom:14px}.chip-b{right:10px;top:14px}
+  .hero-visual{margin-top:18px}
+  .chip-a{left:10px;bottom:14px}.chip-b{top:-16px}
 }
 
 /* Bandeau défilant */
