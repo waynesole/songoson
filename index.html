@@ -169,21 +169,19 @@ section{padding-block:clamp(26px,4vw,60px)}
 #photo-dialog::backdrop{background:rgba(5,6,18,.86);backdrop-filter:blur(4px)}
 #photo-dialog img{display:block;max-width:100%;max-height:88vh;margin:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 #photo-dialog .dlg-close{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--cream);color:#111;font-size:24px;line-height:1;cursor:pointer}
-/* Cartes compactes : petite photo à gauche, texte à droite */
-.band{grid-template-columns:repeat(2,1fr)}
-.mus{display:grid;grid-template-columns:84px 1fr;column-gap:16px;row-gap:5px;align-items:start;align-content:center;padding:14px 16px}
-.mus-open{grid-row:1/4;width:84px;border-radius:12px}
-.mus .mus-photo{height:auto;aspect-ratio:1/1;object-position:center 6%}
-.mus-open{align-self:start}
-.mus-open::after{width:20px;height:20px;right:4px;bottom:4px;background-size:10px}
-.mus>:not(.mus-open){grid-column:2}
-.mus .role{justify-self:start;white-space:nowrap}
-@media (max-width:640px){
-  .band{grid-template-columns:1fr;gap:10px}
-  .mus{grid-template-columns:72px 1fr;column-gap:14px;padding:12px}
-  .mus-open{width:72px}
-  .mus .role{font-size:11px;padding:6px 9px}
-  .mus h3{font-size:18px}.mus p{font-size:13.5px}
+/* Portraits en grand : photo, prénom, instrument, une ligne */
+.band{grid-template-columns:repeat(4,1fr);gap:18px}
+.mus{padding:0;background:none;box-shadow:none;gap:4px;align-items:stretch}
+.mus-open{order:0;width:100%;border-radius:var(--r);margin-bottom:10px}
+.mus .mus-photo{height:auto;aspect-ratio:1/1;object-position:center 10%}
+.mus h3{order:1;font-size:22px}
+.mus .role{order:2;align-self:flex-start;padding:0;background:none;font-size:12px;letter-spacing:.1em}
+.mus p{order:3;margin-top:4px}
+@media (max-width:760px){
+  .band{grid-template-columns:repeat(2,1fr);gap:22px 14px}
+  .mus h3{font-size:18px}
+  .mus .role{font-size:11px}
+  .mus p{font-size:13.5px}
 }
 /* Titres du répertoire */
 .songs{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px;max-width:720px}
@@ -375,7 +373,7 @@ footer a:hover{color:var(--cream)}
         <div class="mus"><button type="button" class="mus-open" data-full="img/full-yalia-v3.jpg" aria-label="Agrandir la photo de Yalía"><img class="mus-photo" src="img/mus-yalia-v4.jpg" alt="Yalía, chanteuse de SONGOSON" width="480" height="480" loading="lazy"></button><span class="role">Chant</span><h3>Yalía</h3><p>Une voix de La Havane.</p></div>
         <div class="mus"><button type="button" class="mus-open" data-full="img/full-theo-v6.jpg" aria-label="Agrandir la photo de Théo"><img class="mus-photo" src="img/mus-theo-v6.jpg" alt="Théo, percussionniste de SONGOSON" width="480" height="480" loading="lazy"></button><span class="role">Percussions</span><h3>Théo</h3><p>Formé à Cuba, à la source des rythmes afro-cubains.</p></div>
         <div class="mus"><button type="button" class="mus-open" data-full="img/full-gonzalo-v4.jpg" aria-label="Agrandir la photo de Gonzalo"><img class="mus-photo" src="img/mus-gonzalo-v4.jpg" alt="Gonzalo, bassiste et contrebassiste de SONGOSON" width="480" height="480" loading="lazy"></button><span class="role">Basse · contrebasse</span><h3>Gonzalo</h3><p>Originaire du Chili.</p></div>
-        <div class="mus"><button type="button" class="mus-open" data-full="img/full-francois-v2.jpg" aria-label="Agrandir la photo de François « Panchito »"><img class="mus-photo" src="img/mus-francois-v2.jpg" alt="François « Panchito », joueur de tres et guitariste de SONGOSON" width="480" height="720" loading="lazy"></button><span class="role">Tres · guitare</span><h3>François <span style="white-space:nowrap">«&nbsp;Panchito&nbsp;»</span></h3><p>Joueur de tres, la guitare cubaine. Il a étudié la musique à Cuba.</p></div>
+        <div class="mus"><button type="button" class="mus-open" data-full="img/full-francois-v2.jpg" aria-label="Agrandir la photo de François « Panchito »"><img class="mus-photo" src="img/mus-francois-v2.jpg" alt="François « Panchito », joueur de tres et guitariste de SONGOSON" width="480" height="720" loading="lazy"></button><span class="role">Tres · guitare</span><h3>François <span style="white-space:nowrap">«&nbsp;Panchito&nbsp;»</span></h3><p>Joueur de tres, la guitare cubaine.</p></div>
       </div>
     </div>
   </section>
