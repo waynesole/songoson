@@ -214,7 +214,7 @@ section{padding-block:clamp(26px,4vw,60px)}
 @media (max-width:900px){.fmt-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto}.fmt-img{aspect-ratio:16/9}}
 
 /* Événements */
-.events{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.events{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-radius:24px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
 .ev{background:var(--night);padding:28px 26px;display:flex;flex-direction:column;gap:12px;transition:background .3s}
 .ev:hover{background:var(--night-2)}
 .ev-ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(255,163,77,.10);color:var(--mango);transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s}
@@ -226,7 +226,7 @@ section{padding-block:clamp(26px,4vw,60px)}
 @media (max-width:560px){.events{grid-template-columns:1fr}}
 
 /* Garanties */
-.promise{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(40px,6vw,72px)}
+.promise{display:grid;grid-template-columns:1fr;gap:18px;margin-top:clamp(32px,5vw,56px);max-width:560px}
 .pr{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:2px solid var(--night-3);transition:border-color .3s}
 .pr:hover{border-color:var(--mango)}
 .pr strong{font:700 19px/1.2 var(--f-display)}
@@ -445,18 +445,13 @@ footer a:hover{color:var(--cream)}
         <h2>Partout où l'on a <span class="serif">envie de danser.</span></h2>
       </div>
       <div class="events reveal">
-        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V9l7-5 7 5v11"/><path d="M9 20v-5h6v5"/><path d="M12 4V2"/></svg></div><h3>Festivals &amp; culture</h3><p>Scènes extérieures, programmations estivales, événements culturels.</p></div>
-        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-5 8v7"/><path d="M8 21h10"/><path d="M9 7h6"/></svg></div><h3>Bars, restos &amp; guinguettes</h3><p>Une ambiance chaleureuse et festive, avec un volume adapté qui laisse place aux conversations.</p></div>
-        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4l2 3 2-3"/></svg></div><h3>Mariages &amp; événements privés</h3><p>Du vin d'honneur à l'ouverture de bal, on suit le rythme de votre journée.</p></div>
-        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M10 21v-4h4v4"/></svg></div><h3>Soirées d'entreprise</h3><p>Séminaires, galas, fêtes de fin d'année : une soirée dont on reparle.</p></div>
-        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4"/><path d="M4 4h12l-2 4 2 4H4"/></svg></div><h3>Fêtes de ville</h3><p>Événements municipaux, 14 juillet, fêtes de quartier et marchés nocturnes.</p></div>
-        <div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V10"/><path d="M12 10C9 6 5 6 3 8c3 0 6 1 9 2zM12 10c3-4 7-4 9-2-3 0-6 1-9 2zM12 10c-1-4-4-6-7-6 2 2 4 4 7 6zM12 10c1-4 4-6 7-6-2 2-4 4-7 6z"/></svg></div><h3>Campings &amp; villages vacances</h3><p>Des soirées animées tout l'été pour petits et grands.</p></div>
+<div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4l2 3 2-3"/></svg></div><h3>Mariages &amp; événements privés</h3><p>Du vin d'honneur à l'ouverture de bal.</p></div>
+<div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V4"/><path d="M4 4h12l-2 4 2 4H4"/></svg></div><h3>Fêtes de ville &amp; festivals</h3><p>Scènes extérieures, 14 juillet, programmations estivales.</p></div>
+<div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-5 8v7"/><path d="M8 21h10"/><path d="M9 7h6"/></svg></div><h3>Bars, restos, guinguettes &amp; campings</h3><p>Une ambiance festive, avec un volume qui laisse place aux conversations.</p></div>
+<div class="ev"><div class="ev-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 7h1M14 7h1M9 11h1M14 11h1M10 21v-4h4v4"/></svg></div><h3>Soirées d'entreprise</h3><p>Séminaires, galas, fêtes de fin d’année.</p></div>
       </div>
       <div class="promise reveal">
-        <div class="pr"><strong>Sonorisation autonome</strong><span>On arrive avec notre matériel, vous n'avez rien à prévoir.</span></div>
-        <div class="pr"><strong>Volume maîtrisé</strong><span>Assez fort pour danser, assez doux pour les voisins.</span></div>
-        <div class="pr"><strong>Formation adaptable</strong><span>Du trio à la formule complète selon le lieu et le budget.</span></div>
-        <div class="pr"><strong>1 h 30 à 2 h de concert</strong><span>Et on joue les prolongations quand la piste est pleine.</span></div>
+        <div class="pr"><strong>1 h 30 à 2 h 30 de concert</strong><span>Et on joue les prolongations quand la piste est pleine.</span></div>
       </div>
     </div>
   </section>
