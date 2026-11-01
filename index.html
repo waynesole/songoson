@@ -161,14 +161,20 @@ section{padding-block:clamp(26px,4vw,60px)}
 .refs{margin:22px 0 0;color:var(--muted);font-size:16px;max-width:52em}
 .refs strong{color:var(--cream)}
 @media (max-width:900px){.band{grid-template-columns:repeat(2,1fr)}}
-.mus .mus-photo{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;margin-bottom:6px;display:block}
+.mus-open{display:block;padding:0;border:0;background:none;cursor:zoom-in;border-radius:12px;overflow:hidden;position:relative;width:100%}
+.mus-open::after{content:"";position:absolute;right:8px;bottom:8px;width:28px;height:28px;border-radius:50%;background:rgba(11,13,31,.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center/14px no-repeat}
+.mus .mus-photo{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;transition:transform .35s}
+.mus-open:hover .mus-photo{transform:scale(1.03)}
+.mus-open:focus-visible{outline:2px solid var(--mango);outline-offset:2px}
+#photo-dialog{border:0;padding:0;background:transparent;max-width:min(92vw,720px);max-height:92vh;overflow:visible}
+#photo-dialog::backdrop{background:rgba(5,6,18,.86);backdrop-filter:blur(4px)}
+#photo-dialog img{display:block;max-width:100%;max-height:88vh;margin:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#photo-dialog .dlg-close{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--cream);color:#111;font-size:24px;line-height:1;cursor:pointer}
 @media (max-width:520px){
-  .band{grid-template-columns:1fr;gap:10px}
-  .mus{padding:14px;display:grid;grid-template-columns:96px 1fr;column-gap:16px;row-gap:6px;align-items:start;align-content:center}
-  .mus .mus-photo{grid-row:1/4;width:96px;height:96px;margin:0;border-radius:14px}
-  .mus>:not(.mus-photo){grid-column:2}
-  .mus .role{justify-self:start;white-space:nowrap;font-size:11px;padding:6px 9px}
-  .mus h3{font-size:19px}.mus p{font-size:14px}
+  .band{grid-template-columns:repeat(2,1fr);gap:10px}
+  .mus{padding:10px 10px 14px;gap:6px}
+  .mus .role{font-size:11px;padding:6px 9px}
+  .mus h3{font-size:18px}.mus p{font-size:13.5px}
 }
 /* Titres du répertoire */
 .songs{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px;max-width:720px}
@@ -358,10 +364,10 @@ footer a:hover{color:var(--cream)}
         <h2>Ceux qui font <span class="serif">vibrer la soirée.</span></h2>
       </div>
       <div class="band reveal">
-        <div class="mus"><img class="mus-photo" src="img/mus-yalia.jpg" alt="Yalía, chanteuse de SONGOSON" width="320" height="320" loading="lazy"><span class="role">Chant</span><h3>Yalía</h3><p>Chanteuse cubaine, née à La Havane.</p></div>
-        <div class="mus"><img class="mus-photo" src="img/mus-theo.jpg" alt="Théo, percussionniste de SONGOSON" width="320" height="320" loading="lazy"><span class="role">Percussions</span><h3>Théo</h3><p>Percussionniste formé à Cuba, à la source des rythmes afro-cubains.</p></div>
-        <div class="mus"><img class="mus-photo" src="img/mus-francois.jpg" alt="François « Panchito », joueur de tres et guitariste de SONGOSON" width="320" height="320" loading="lazy"><span class="role">Tres · guitare</span><h3>François <span style="white-space:nowrap">«&nbsp;Panchito&nbsp;»</span></h3><p>Joueur de tres, la guitare cubaine. Il a étudié la musique à Cuba.</p></div>
-        <div class="mus"><img class="mus-photo" src="img/mus-gonzalo.jpg" alt="Gonzalo, bassiste et contrebassiste de SONGOSON" width="320" height="320" loading="lazy"><span class="role">Basse · contrebasse</span><h3>Gonzalo</h3><p>Bassiste et contrebassiste, originaire du Chili.</p></div>
+        <div class="mus"><button type="button" class="mus-open" data-full="img/full-yalia.jpg" aria-label="Agrandir la photo de Yalía"><img class="mus-photo" src="img/mus-yalia.jpg" alt="Yalía, chanteuse de SONGOSON" width="480" height="640" loading="lazy"></button><span class="role">Chant</span><h3>Yalía</h3><p>Chanteuse cubaine, née à La Havane.</p></div>
+        <div class="mus"><button type="button" class="mus-open" data-full="img/full-theo.jpg" aria-label="Agrandir la photo de Théo"><img class="mus-photo" src="img/mus-theo.jpg" alt="Théo, percussionniste de SONGOSON" width="480" height="640" loading="lazy"></button><span class="role">Percussions</span><h3>Théo</h3><p>Percussionniste formé à Cuba, à la source des rythmes afro-cubains.</p></div>
+        <div class="mus"><button type="button" class="mus-open" data-full="img/full-francois.jpg" aria-label="Agrandir la photo de François « Panchito »"><img class="mus-photo" src="img/mus-francois.jpg" alt="François « Panchito », joueur de tres et guitariste de SONGOSON" width="480" height="640" loading="lazy"></button><span class="role">Tres · guitare</span><h3>François <span style="white-space:nowrap">«&nbsp;Panchito&nbsp;»</span></h3><p>Joueur de tres, la guitare cubaine. Il a étudié la musique à Cuba.</p></div>
+        <div class="mus"><button type="button" class="mus-open" data-full="img/full-gonzalo.jpg" aria-label="Agrandir la photo de Gonzalo"><img class="mus-photo" src="img/mus-gonzalo.jpg" alt="Gonzalo, bassiste et contrebassiste de SONGOSON" width="480" height="640" loading="lazy"></button><span class="role">Basse · contrebasse</span><h3>Gonzalo</h3><p>Bassiste et contrebassiste, originaire du Chili.</p></div>
       </div>
       <p class="refs reveal"><strong>Déjà sur scène :</strong> plusieurs festivals, la Guinguette Chez Alriq, les lieux festifs de Bordeaux et des écoles de danse.</p>
     </div>
@@ -563,5 +569,11 @@ footer a:hover{color:var(--cream)}
 })();
 </script>
 
+<dialog id="photo-dialog" aria-label="Photo agrandie"><button type="button" class="dlg-close" aria-label="Fermer">×</button><img alt=""></dialog>
+<script>
+(function(){var d=document.getElementById('photo-dialog');if(!d||!d.showModal)return;var im=d.querySelector('img');
+document.querySelectorAll('.mus-open').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.full;im.alt=b.querySelector('img').alt;d.showModal()})});
+d.addEventListener('click',function(e){if(e.target===d||e.target.classList.contains('dlg-close'))d.close()});})();
+</script>
 </body>
 </html>
