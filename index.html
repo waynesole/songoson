@@ -75,7 +75,7 @@ footer .logo img{height:36px}
 @media (max-width:860px){.nav-links{display:none}}
 
 /* Hero */
-.hero{position:relative;padding-block:clamp(32px,6vw,80px) clamp(28px,5vw,64px);isolation:isolate}
+.hero{position:relative;padding-block:clamp(32px,6vw,80px) clamp(28px,5vw,64px);isolation:isolate;overflow-x:clip}
 .hero::before{content:"";position:absolute;inset:-10% -10% auto auto;width:70vw;height:70vw;max-width:900px;max-height:900px;background:radial-gradient(circle,rgba(255,163,77,.22),rgba(236,59,63,.10) 40%,transparent 68%);z-index:-1;filter:blur(10px);animation:sun 14s ease-in-out infinite alternate}
 .hero::after{content:"";position:absolute;left:-20%;bottom:-30%;width:60vw;height:60vw;max-width:700px;background:radial-gradient(circle,rgba(70,80,220,.20),transparent 65%);z-index:-1}
 @keyframes sun{to{transform:translate(-6%,8%) scale(1.08)}}
