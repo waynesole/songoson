@@ -550,7 +550,7 @@ footer a:hover{color:var(--cream)}
   });
   function sel(b){var a=b.parentNode.querySelector('a');var r=document.createRange();r.selectNodeContents(a);var s=getSelection();s.removeAllRanges();s.addRange(r);}
 
-  // Devis : prépare le message et ouvre la messagerie
+  // Devis : envoi direct via Formspree (repli : messagerie)
   var f=document.getElementById('quote-form'),done=document.getElementById('done');
   f.addEventListener('submit',function(e){
     e.preventDefault();
@@ -561,11 +561,17 @@ footer a:hover{color:var(--cream)}
       '• Invités : '+d.get('invites'),'• Formation : '+d.get('format'),
       d.get('msg')?'\n'+d.get('msg'):'','','— '+(d.get('nom')||'')+' · '+(d.get('contact')||'')].join('\n');
     var subject='Demande de devis : '+d.get('type')+' ('+date+')';
-    var href='mailto:songoson4@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-    done.hidden=false;
-    done.innerHTML='<strong>Votre demande est prête.</strong> Votre messagerie va s\'ouvrir avec le message pré-rempli. Si rien ne s\'ouvre, copiez ce texte et envoyez-le à songoson4@gmail.com :<pre></pre>';
-    done.querySelector('pre').textContent=body;
-    var a=document.createElement('a');a.href=href;a.click();
+    var btn=f.querySelector('button[type=submit]');btn.disabled=true;
+    var payload={_subject:subject,Evenement:d.get('type'),Date:date,Lieu:d.get('lieu')||'à préciser',Invites:d.get('invites'),Formation:d.get('format'),Nom:d.get('nom'),Contact:d.get('contact'),Message:d.get('msg')};
+    if(d.get('contact')&&d.get('contact').indexOf('@')>0)payload._replyto=d.get('contact');
+    fetch('https://formspree.io/f/xgaanqqz',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){if(!r.ok)throw new Error('http');
+      done.hidden=false;done.innerHTML='<strong>Merci, votre demande est bien envoyée.</strong> Nous vous répondons très vite.';f.reset();
+    }).catch(function(){
+      done.hidden=false;
+      done.innerHTML='<strong>L\'envoi n\'a pas abouti.</strong> Copiez ce message et envoyez-le à songoson4@gmail.com, ou appelez le 06 14 14 92 06 :<pre></pre>';
+      done.querySelector('pre').textContent=body;
+    }).then(function(){btn.disabled=false;});
   });
 })();
 </script>
