@@ -178,6 +178,11 @@ section.clair{background:#d8ccb5;color:#14162e;--night:#e6dcc7;--cream:#14162e;-
 #photo-dialog{border:0;padding:0;background:transparent;max-width:min(92vw,720px);max-height:92vh;overflow:visible}
 #photo-dialog::backdrop{background:rgba(5,6,18,.86);backdrop-filter:blur(4px)}
 #photo-dialog img{display:block;max-width:100%;max-height:88vh;margin:auto;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#photo-dialog .dlg-cap{margin:14px auto 0;text-align:center;color:var(--cream);max-width:34em}
+#photo-dialog .dlg-cap b{display:block;font:800 24px/1.1 var(--f-display)}
+#photo-dialog .dlg-cap small{display:block;margin-top:4px;font:700 12px/1.3 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mango)}
+#photo-dialog .dlg-cap span{display:block;margin-top:8px;font-size:16px;color:var(--muted)}
+#photo-dialog img{max-height:76vh}
 #photo-dialog .dlg-close{position:absolute;top:-14px;right:-14px;width:40px;height:40px;border-radius:50%;border:0;background:var(--cream);color:#111;font-size:24px;line-height:1;cursor:pointer}
 /* Portraits en grand : photo, prénom, instrument, une ligne */
 .band{grid-template-columns:repeat(4,1fr);gap:18px}
@@ -186,7 +191,7 @@ section.clair{background:#d8ccb5;color:#14162e;--night:#e6dcc7;--cream:#14162e;-
 .mus .mus-photo{height:auto;aspect-ratio:1/1;object-position:center 10%}
 .mus h3{order:1;font-size:22px}
 .mus .role{order:2;align-self:flex-start;padding:0;background:none;font-size:12px;letter-spacing:.1em}
-.mus p{order:3;margin-top:4px}
+.mus p{order:3;margin-top:4px;position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:760px){
   .band{grid-template-columns:repeat(2,1fr);gap:22px 14px}
   .mus h3{font-size:18px}
@@ -379,7 +384,7 @@ footer a:hover{color:var(--cream)}
         <h2>Ceux qui font <span class="serif">vibrer la soirée.</span></h2>
       </div>
       <div class="band reveal">
-        <div class="mus"><button type="button" class="mus-open" data-full="img/full-yalia-v3.jpg" aria-label="Agrandir la photo de Yalía"><img class="mus-photo" src="img/mus-yalia-v4.jpg" alt="Yalía, chanteuse de SONGOSON" width="480" height="480" loading="lazy"></button><span class="role">Chant</span><h3>Yalía</h3><p>Une voix de La Havane.</p></div>
+        <div class="mus"><button type="button" class="mus-open" data-full="img/full-yalia-v3.jpg" aria-label="Agrandir la photo de Yalía"><img class="mus-photo" src="img/mus-yalia-v4.jpg" alt="Yalía, chanteuse de SONGOSON" width="480" height="480" loading="lazy"></button><span class="role">Chant</span><h3>Yalía</h3><p>La voix du groupe, du boléro à la salsa.</p></div>
         <div class="mus"><button type="button" class="mus-open" data-full="img/full-theo-v6.jpg" aria-label="Agrandir la photo de Théo"><img class="mus-photo" src="img/mus-theo-v7.jpg" alt="Théo, percussionniste de SONGOSON" width="480" height="480" loading="lazy"></button><span class="role">Percussions</span><h3>Théo</h3><p>Formé à Cuba, à la source des rythmes afro-cubains.</p></div>
         <div class="mus"><button type="button" class="mus-open" data-full="img/full-gonzalo-v4.jpg" aria-label="Agrandir la photo de Gonzalo"><img class="mus-photo" src="img/mus-gonzalo-v4.jpg" alt="Gonzalo, bassiste et contrebassiste de SONGOSON" width="480" height="480" loading="lazy"></button><span class="role">Basse · contrebasse</span><h3>Gonzalo</h3><p>Originaire du Chili.</p></div>
         <div class="mus"><button type="button" class="mus-open" data-full="img/full-francois-v2.jpg" aria-label="Agrandir la photo de François « Panchito »"><img class="mus-photo" src="img/mus-francois-v2.jpg" alt="François « Panchito », joueur de tres et guitariste de SONGOSON" width="480" height="720" loading="lazy"></button><span class="role">Tres · guitare</span><h3>François <span style="white-space:nowrap">«&nbsp;Panchito&nbsp;»</span></h3><p>Joueur de tres, la guitare cubaine.</p></div>
@@ -585,10 +590,14 @@ footer a:hover{color:var(--cream)}
 })();
 </script>
 
-<dialog id="photo-dialog" aria-label="Photo agrandie"><button type="button" class="dlg-close" aria-label="Fermer">×</button><img alt=""></dialog>
+<dialog id="photo-dialog" aria-label="Photo agrandie"><button type="button" class="dlg-close" aria-label="Fermer">×</button><img alt=""><div class="dlg-cap"></div></dialog>
 <script>
 (function(){var d=document.getElementById('photo-dialog');if(!d||!d.showModal)return;var im=d.querySelector('img');
-document.querySelectorAll('.mus-open').forEach(function(b){b.addEventListener('click',function(){im.src=b.dataset.full;im.alt=b.querySelector('img').alt;d.showModal()})});
+var cap=d.querySelector('.dlg-cap');
+document.querySelectorAll('.mus-open').forEach(function(b){b.addEventListener('click',function(){var m=b.closest('.mus');im.src=b.dataset.full;im.alt=b.querySelector('img').alt;
+var n=m.querySelector('h3'),r=m.querySelector('.role'),p=m.querySelector('p');
+cap.innerHTML='<b></b><small></small><span></span>';cap.querySelector('b').textContent=n?n.textContent:'';cap.querySelector('small').textContent=r?r.textContent:'';cap.querySelector('span').textContent=p?p.textContent:'';
+d.showModal()})});
 d.addEventListener('click',function(e){if(e.target===d||e.target.classList.contains('dlg-close'))d.close()});})();
 </script>
 <script>
