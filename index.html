@@ -90,7 +90,7 @@ footer .logo img{height:36px}
 .proof span{display:inline-flex;align-items:center;gap:8px}
 .proof svg{width:16px;height:16px;color:var(--mango)}
 
-.hero-visual{position:relative;min-width:0}
+.hero-visual{position:relative;min-width:0;align-self:start}
 .hero-photo{border-radius:28px;overflow:hidden;aspect-ratio:1/1.02;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px var(--line);position:relative}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.04);animation:zoom 1.6s cubic-bezier(.2,.8,.2,1) both}
 .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,13,31,.75));pointer-events:none}
@@ -113,7 +113,6 @@ footer .logo img{height:36px}
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr}
   .hero-visual{order:-1;max-width:560px;width:100%;margin-inline:auto}
-  .hero-visual{margin-top:18px}
   .chip-a{left:10px;bottom:14px}.chip-b{top:-16px}
 }
 
@@ -350,8 +349,7 @@ footer a:hover{color:var(--cream)}
       </div>
       <div class="hero-visual">
         <div class="hero-photo"><img src="img/hero-collage-v2.jpg" alt="SONGOSON en concert : la chanteuse au micro entourée du percussionniste, du contrebassiste et du guitariste" fetchpriority="high" style="object-position:center 35%"></div>
-        <div class="chip-float chip-a"><div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div><strong>Salsa · Bachata · Son</strong></div></div>
-        <div class="chip-float chip-b"><span class="dot" aria-hidden="true"></span><div><strong>Dates ouvertes</strong><small>Saison 2026–2027</small></div></div>
+        <div class="chip-float chip-a"><span class="dot" aria-hidden="true"></span><div><strong>Dates ouvertes</strong><small>Saison 2026–2027</small></div></div>
       </div>
     </div>
   </section>
