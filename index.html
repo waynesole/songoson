@@ -97,6 +97,13 @@ footer .logo img{height:36px}
 .hero-photo{border-radius:28px;overflow:hidden;aspect-ratio:1/1.02;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px var(--line);position:relative}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.04);animation:zoom 1.6s cubic-bezier(.2,.8,.2,1) both}
 .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,13,31,.75));pointer-events:none}
+.hero-play{display:block;text-decoration:none;color:inherit;cursor:pointer}
+.hero-play img{filter:brightness(.8) saturate(1.1)}
+.hero-play:hover img{filter:brightness(.95) saturate(1.15)}
+.hp-play{position:absolute;z-index:2;inset:0;display:grid;place-items:center}
+.hp-play .play-btn{width:76px;height:76px;transition:transform .3s}
+.hp-play .play-btn svg{width:28px;height:28px;margin-left:4px}
+.hero-play:hover .play-btn{transform:scale(1.1)}
 @keyframes zoom{from{transform:scale(1.12)}}
 .vbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;overflow:visible;color:var(--cream)}
 .vbox::backdrop{background:rgba(5,6,16,.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -362,7 +369,7 @@ footer a:hover{color:var(--cream)}
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-photo"><img src="img/hero-collage-v2.jpg" alt="SONGOSON en concert : la chanteuse au micro entourée du percussionniste, du contrebassiste et du guitariste" fetchpriority="high" style="object-position:center 35%"></div>
+        <a class="hero-photo hero-play" href="https://youtube.com/shorts/F3RKGwjCDgw" data-yt="F3RKGwjCDgw" target="_blank" rel="noopener" aria-label="Voir SONGOSON en concert à la Guinguette Chez Alriq"><img src="img/chanteuse.jpg" alt="La chanteuse de SONGOSON en concert, micro en main" fetchpriority="high" style="object-position:center 22%"><span class="hp-play"><span class="play-btn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z"/></svg></span></span></a>
         <div class="chip-float chip-a"><span class="dot" aria-hidden="true"></span><div><strong>Dates ouvertes</strong><small>Saison 2026–2027</small></div></div>
       </div>
     </div>
